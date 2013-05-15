@@ -18,6 +18,7 @@
         <module>superpom</module>
         <module>spinal-api</module>
         <module>BidirectionalPOSTagger</module>
+        <module>assembly</module>
     </modules>
 
     <distributionManagement>

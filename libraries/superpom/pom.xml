@@ -12,7 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <edu.upenn.cis>1.0-SNAPSHOT</edu.upenn.cis>
+        <edu.upenn.cis.version>1.0-SNAPSHOT</edu.upenn.cis.version>
+        <edu.upenn.cis.models.version>0.1.0</edu.upenn.cis.models.version>
 	<org.apache.maven.plugins.maven-compiler-plugin.version>3.1</org.apache.maven.plugins.maven-compiler-plugin.version>
         <jdk.version>1.4</jdk.version>
         <source_jdk.version>${jdk.version}</source_jdk.version>
@@ -67,6 +68,17 @@
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>edu.upenn.cis</groupId>
+                <artifactId>ltag-spinal-bpos</artifactId>
+                <version>${edu.upenn.cis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>edu.upenn.cis.models</groupId>
+                <artifactId>ltag-spinal-bpos-model</artifactId>
+                <version>${edu.upenn.cis.models.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.testng</groupId>

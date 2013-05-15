@@ -13,12 +13,13 @@ public class bpos
     {
     }
 
+    // TODO: Use the model/POS-Tags from jar
     public static void main(String args[])
     {
         if(args.length != 4)
         {
-            System.out.println("Usage: java -classpath edu.upenn.cis.bpos.bpos.jar edu.upenn.cis.bpos.bpos <beam width> <test file> <weights> <lables>");
-            System.out.println("For example: java -classpath edu.upenn.cis.bpos.bpos.jar edu.upenn.cis.bpos.bpos 1 data/sample.raw data/k3.fea data/postag.txt > sample.hypo");
+            System.out.println("Usage: java -classpath $CLASSPATH edu.upenn.cis.bpos.bpos <beam width> <test file> <weights> <lables>");
+            System.out.println("For example: java -classpath $CLASSPATH edu.upenn.cis.bpos.bpos 1 data/sample.raw data/k3.fea data/postag.txt > sample.hypo");
             return;
         } else
         {
@@ -67,14 +68,14 @@ public class bpos
         SLabelLib.saveLabels((new StringBuilder()).append(proj).append(".tag").toString());
     }
 
-    public static void predict(String s, String s1, String s2)
+    public static void predict(String testFile, String modelFile, String tagFile)
     {
-        SLabelLib.loadLabels(s2);
+        SLabelLib.loadLabels(tagFile);
         SLabelLib.initTargetWithLabel();
         SFeatLib sfeatlib = new SFeatLib();
-        sfeatlib.loadFeatTable(s1);
+        sfeatlib.loadFeatTable(modelFile);
         Vector vector = new Vector();
-        loadTestData(s, vector);
+        loadTestData(testFile, vector);
         BLinTagLearn blintaglearn = new BLinTagLearn(proj, vector, sfeatlib);
         blintaglearn.predict();
     }

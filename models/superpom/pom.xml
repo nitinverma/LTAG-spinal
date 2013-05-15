@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>edu.upenn.cis.models</groupId>
+    <artifactId>models-superpom</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+
+    <name>LTAG-spinal Models - Superpom</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <edu.upenn.cis.models.version>0.1.0</edu.upenn.cis.models.version>
+	<org.apache.maven.plugins.maven-compiler-plugin.version>3.1</org.apache.maven.plugins.maven-compiler-plugin.version>
+        <jdk.version>1.4</jdk.version>
+        <source_jdk.version>${jdk.version}</source_jdk.version>
+        <target_jdk.version>${jdk.version}</target_jdk.version>
+    </properties>
+
+    <distributionManagement>
+
+        <repository>
+            <id>public.maven.repository.releases</id>
+            <name>Public Release Local Repository</name>
+            <url>file:////${user.home}/Codes/git/github/nitinverma/public.maven.repository/releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>public.maven.repository.snapshots</id>
+            <name>Public Snapshots Local Repository</name>
+            <url>file:////${user.home}/Codes/git/github/nitinverma/public.maven.repository/snapshots/</url>
+        </snapshotRepository>
+
+   </distributionManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${org.apache.maven.plugins.maven-compiler-plugin.version}</version>
+                    <configuration>
+
+                        <fork>true</fork>
+                        <source>${source_jdk.version}</source>
+                        <target>${target_jdk.version}</target>
+                        <compilerArgs>
+                            <arg>-J-Xms128m</arg>
+                            <arg>-J-Xmx512m</arg>
+                        </compilerArgs>
+
+                    </configuration>
+
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
+</project>

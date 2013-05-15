@@ -25,6 +25,11 @@
     <dependencies>
 
         <dependency>
+            <groupId>edu.upenn.cis.models</groupId>
+            <artifactId>ltag-spinal-bpos-model</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <scope>test</scope>
